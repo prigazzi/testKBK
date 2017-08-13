@@ -20,7 +20,7 @@ class SuscripcionesRepository {
 
     public function create(array $attributes)
     {
-
+        $this->model->create(['email' => $attributes['email'], 'estado' => $attributes['estado']]);
     }
 
 } 

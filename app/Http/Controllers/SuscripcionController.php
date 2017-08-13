@@ -28,4 +28,15 @@ class SuscripcionController extends Controller
         $states = $this->statesRepository->getAll()->toArray();
         return view('suscripcion', ['states'=> $states]);
     }
+
+    public function saveSubscription(Request $request)
+    {
+        $email = $request->input('email');
+        $estado = $request->input('state');
+        if(empty($email) || empty($estado)){
+            return view('error');
+        }
+        $this->suscripcionesRepository->create(['email' => $email, 'estado' => $estado]);
+        return view('gracias');
+    }
 }

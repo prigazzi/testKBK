@@ -11,8 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/suscripcion', 'SuscripcionController@showForm');
+Route::get('/', 'SuscripcionController@showForm');
+Route::post('/suscripcion/guardasuscripcion', 'SuscripcionController@saveSubscription');
